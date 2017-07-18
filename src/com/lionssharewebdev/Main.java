@@ -68,27 +68,50 @@ public class Main {
         Queen.freeze();
 
         if(Queen.frozen == true){
-            System.out.println("The game is now frozen!");
+            System.out.println("Now freezing your game for you...");
+            System.out.println("The game is has now been successfully frozen!");
+        }else{
+            System.out.println("Something went wrong the game was not frozen!");
         }
+
+
 
         Queen.unfreeze();
 
+
         if(Queen.frozen == false){
-            System.out.println("The game is now unfrozen for you!");
+            System.out.println("Now unfreezing your game for you....");
+            System.out.println("The game has now been successfully unfrozen for you!");
+        }else {
+            System.out.println("Something went wrong the game is still frozen!");
         }
 
-        System.out.println("Your current position is " + Queen.positionX + " " + Queen.positionY);
+        System.out.println("Your starting position is " + Queen.positionX + " " + Queen.positionY + " ,now attempting to move piece.");
 
         Queen.move(5,8);
+
+        if(Queen.positionX == 0 && Queen.positionY == 0){
+          System.out.println("Error - your piece has not moved at all!");
+          System.out.println("Your position is still " + Queen.positionX + " " + Queen.positionY);
+        }else {
+            System.out.println("Your Queen has moved to the following position " + Queen.positionX + " " + Queen.positionY);
+        }
 
         System.out.println("Now your current position is " + Queen.positionX + " " + Queen.positionY);
 
         Queen.freeze();
 
-        Queen.move(13,15);
 
-        System.out.println("Now your new current position is " + Queen.positionX + " " + Queen.positionY);
 
+        if(Queen.frozen == true) {
+            System.out.println("Now freezing your game for you...");
+            System.out.println("Your Queen has been frozen your position is still " + Queen.positionX + " " + Queen.positionY);
+        }else{
+
+            Queen.move(0,0);
+            System.out.println("Your Queen was not frozen and was moved to the default of " + Queen.positionX + " " + Queen.positionY);
+
+        }
 
 
     }
